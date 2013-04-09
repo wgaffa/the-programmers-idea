@@ -3,7 +3,7 @@
 
 #include <cassert>
 
-#include "event.h"
+#include "eventmanager.h"
 
 int main(int, char **)
 {
@@ -35,17 +35,21 @@ int main(int, char **)
 
 	std::cout << "Message: ";
 	std::string message;
-	std::cin >> message;
+	std::getline(std::cin, message);
 
 	Event event(mktime(&alarm), message);
-
+	EventManager events;
+	events.add(event);
+	
 	while (true)
 	{
-		std::time(&time);
+		std::vector<Event> overdue = events.getOverDue();
 
-		if (time > event.getTime())
+		if (!overdue.empty())
 		{
-			std::cout << event.getMessage() << std::endl;
+			for(Event event : overdue)
+				std::cout << event.getMessage() << std::endl;
+
 			break;
 		}
 	}

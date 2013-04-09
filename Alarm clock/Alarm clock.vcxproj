@@ -63,10 +63,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="event.cpp" />
+    <ClCompile Include="eventmanager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="event.h" />
+    <ClInclude Include="eventmanager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
