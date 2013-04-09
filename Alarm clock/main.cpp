@@ -6,7 +6,10 @@
 
 #include "eventmanager.h"
 
+enum class KeyEvent { QUIT, NEW, OTHER };
+
 Event inputEvent();
+KeyEvent getKeyEvent();
 
 int main(int, char **)
 {
@@ -25,10 +28,25 @@ int main(int, char **)
 
 	events.add(inputEvent());
 	
-	while (true)
+	KeyEvent key = KeyEvent::OTHER;
+	do
 	{
 		if(kbhit())
-			events.add(inputEvent());
+		{
+			key = getKeyEvent();
+			switch(key)
+			{
+			case KeyEvent::NEW:
+				events.add(inputEvent());
+				break;
+
+			case KeyEvent::QUIT:
+				break;
+
+			default:
+				break;
+			}
+		}
 
 		std::vector<Event> overdue = events.getOverDue();
 
@@ -40,6 +58,7 @@ int main(int, char **)
 			break;
 		}
 	}
+	while (key != KeyEvent::QUIT);
 
 	return 0;
 }
@@ -69,4 +88,28 @@ Event inputEvent()
 	Event event(mktime(&alarm), message);
 	
 	return event;
+}
+
+KeyEvent getKeyEvent()
+{
+	std::string buffer;
+	std::getline(std::cin, buffer);
+
+	switch (buffer[0])
+	{
+	case 'Q':
+	case 'q':
+		return KeyEvent::QUIT;
+		break;
+
+	case 'N':
+	case 'n':
+		return KeyEvent::NEW;
+		break;
+
+	default:
+		break;
+	}
+
+	return KeyEvent::OTHER;
 }
