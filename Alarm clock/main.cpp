@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <conio.h>
 
 #include <cassert>
 
@@ -41,7 +42,7 @@ int main(int, char **)
 	EventManager events;
 	events.add(event);
 	
-	while (true)
+	while (true && !kbhit())
 	{
 		std::vector<Event> overdue = events.getOverDue();
 
