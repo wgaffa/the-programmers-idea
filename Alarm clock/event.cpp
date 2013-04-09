@@ -9,12 +9,12 @@ Event::~Event()
 {
 }
 
-time_t Event::get_time()
+time_t Event::getTime()
 {
 	return time_;
 }
 
-std::string Event::get_message()
+std::string Event::getMessage()
 {
 	return message_;
 }

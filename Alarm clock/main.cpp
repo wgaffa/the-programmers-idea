@@ -37,15 +37,15 @@ int main(int, char **)
 	std::string message;
 	std::cin >> message;
 
-	Event wake_up(mktime(&alarm), message);
+	Event event(mktime(&alarm), message);
 
 	while (true)
 	{
 		std::time(&time);
 
-		if (time > wake_up.get_time())
+		if (time > event.getTime())
 		{
-			std::cout << wake_up.get_message() << std::endl;
+			std::cout << event.getMessage() << std::endl;
 			break;
 		}
 	}

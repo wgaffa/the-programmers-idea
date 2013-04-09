@@ -7,8 +7,8 @@ public:
 	Event(const time_t, const std::string);
 	~Event();
 
-	time_t		get_time();
-	std::string get_message();
+	time_t		getTime();
+	std::string getMessage();
 
 private:
 	time_t		time_;
