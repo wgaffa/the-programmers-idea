@@ -29,5 +29,5 @@ std::vector<Event> EventManager::getOverDue(const time_t time) const
 
 std::vector<Event> EventManager::getOverDue() const
 {
-	return getOverDue(time(NULL));
+	return getOverDue(time(nullptr));
 }

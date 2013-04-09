@@ -6,6 +6,8 @@
 
 #include "eventmanager.h"
 
+Event inputEvent();
+
 int main(int, char **)
 {
 	time_t time;
@@ -19,10 +21,36 @@ int main(int, char **)
 	strftime(time_string, 17, "%Y-%m-%d %H:%M", current_time);
 	std::cout << "Current time: " << time_string << std::endl;
 
+	EventManager events;
+
+	events.add(inputEvent());
+	
+	while (true)
+	{
+		if(kbhit())
+			events.add(inputEvent());
+
+		std::vector<Event> overdue = events.getOverDue();
+
+		if (!overdue.empty())
+		{
+			for(Event event : overdue)
+				std::cout << event.getMessage() << std::endl;
+
+			break;
+		}
+	}
+
+	return 0;
+}
+
+Event inputEvent()
+{
 	std::cout << "Event start (YYYY-MM-DD HH:MM): ";
 	std::string alarm_time;
 	std::getline(std::cin, alarm_time);
 
+	time_t time = std::time(nullptr);
 	tm alarm = *localtime(&time);
 	int year, month, day, hour, minute;
 	sscanf(alarm_time.c_str(), "%d-%d-%d %d:%d", &year, &month, &day, &hour, &minute);
@@ -39,21 +67,6 @@ int main(int, char **)
 	std::getline(std::cin, message);
 
 	Event event(mktime(&alarm), message);
-	EventManager events;
-	events.add(event);
 	
-	while (true && !kbhit())
-	{
-		std::vector<Event> overdue = events.getOverDue();
-
-		if (!overdue.empty())
-		{
-			for(Event event : overdue)
-				std::cout << event.getMessage() << std::endl;
-
-			break;
-		}
-	}
-
-	return 0;
+	return event;
 }
