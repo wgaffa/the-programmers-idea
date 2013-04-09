@@ -50,8 +50,8 @@ Event inputEvent()
 	std::string alarm_time;
 	std::getline(std::cin, alarm_time);
 
-	time_t time = std::time(nullptr);
-	tm alarm = *localtime(&time);
+	time_t now = time(nullptr);
+	tm alarm = *localtime(&now);
 	int year, month, day, hour, minute;
 	sscanf(alarm_time.c_str(), "%d-%d-%d %d:%d", &year, &month, &day, &hour, &minute);
 
