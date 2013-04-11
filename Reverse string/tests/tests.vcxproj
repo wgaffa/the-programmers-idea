@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{150E6DFE-2551-494F-ACD2-ECA8B2ABED84}</ProjectGuid>
-    <RootNamespace>Reversestring</RootNamespace>
+    <ProjectGuid>{79B8A2E2-60B2-436B-BE07-2DC43C36788C}</ProjectGuid>
+    <RootNamespace>tests</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -43,6 +43,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,11 +63,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\reversestring.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="reversestring.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="reversestring.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
