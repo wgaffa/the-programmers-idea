@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "reversestring.h"
+#include <unittest.h>
 
-#define TEST_CASE(test, expected) std::cout << ((test == expected) ? "[PASS]" : "[FAIL]") << " " #test << std::endl
+#include "reversestring.h"
 
 bool test_reverse_string();
 
@@ -14,8 +14,8 @@ int main(int, char **)
 
 bool test_reverse_string()
 {
-	TEST_CASE(reverse_string("Hello"), "olleH");
-	TEST_CASE(reverse_string("naturrutan"), "naturrutan");
+	TEST_ASSERT_EQUAL(reverse_string("Hello"), "olleH");
+	TEST_ASSERT_EQUAL(reverse_string("naturrutan"), "naturrutan");
 	
 	return true;
 }
