@@ -25,9 +25,12 @@ int main(int, char **)
 int fibonacci_loop(int term)
 {
 	if (term < 0)
+		throw invalid_argument("Fibonacci requires a positive integer");
+
+	if (term == 0)
 		return 0;
 
-	if (term < 3)
+	if (term == 1)
 		return 1;
 
 	int last_number = 1;
@@ -44,7 +47,13 @@ int fibonacci_loop(int term)
 
 int fibonacci_recursive(int term)
 {
-	if (term < 3)
+	if (term < 0 )
+		throw invalid_argument("Fibonacci requires a positive integer");
+
+	if (term == 0)
+		return 0;
+
+	if (term == 1)
 		return 1;
 
 	return fibonacci_recursive(term - 1) + fibonacci_recursive(term - 2);
@@ -57,7 +66,16 @@ int fibonacci_tail_recusive(int term)
 
 int fibonacci_tail_recusive(int term, int result, int last)
 {
-	if (term < 3)
+	if (term < 0)
+		throw invalid_argument("Fibonacci requires a positive integer");
+
+	if (term == 0)
+		return 0;
+
+	if (term == 1)
+		return 1;
+
+	if (term == 2)
 		return result;
 
 	return fibonacci_tail_recusive(term - 1, result + last, result);
