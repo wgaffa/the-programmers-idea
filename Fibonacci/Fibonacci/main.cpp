@@ -3,6 +3,7 @@
 #include "FibonacciLoop.h"
 #include "FibonacciRecursive.h"
 #include "FibonacciTailRecursive.h"
+#include "FibonacciLambda.h"
 
 using namespace std;
 
@@ -22,6 +23,10 @@ int main(int, char **)
 
 	delete fibonacci;
 	fibonacci = new FibonacciTailRecursive();
+	cout << fibonacci->calculate(fibonacci_term) << endl;
+
+	delete fibonacci;
+	fibonacci = new FibonacciLambda();
 	cout << fibonacci->calculate(fibonacci_term) << endl;
 
 	return 0;

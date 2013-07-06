@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FibonacciBase.cpp" />
+    <ClCompile Include="FibonacciLambda.cpp" />
     <ClCompile Include="FibonacciLoop.cpp" />
     <ClCompile Include="FibonacciRecursive.cpp" />
     <ClCompile Include="FibonacciTailRecursive.cpp" />
@@ -72,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FibonacciBase.h" />
+    <ClInclude Include="FibonacciLambda.h" />
     <ClInclude Include="FibonacciLoop.h" />
     <ClInclude Include="FibonacciRecursive.h" />
     <ClInclude Include="FibonacciTailRecursive.h" />
