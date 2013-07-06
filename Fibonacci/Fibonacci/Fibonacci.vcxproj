@@ -64,7 +64,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FibonacciBase.cpp" />
+    <ClCompile Include="FibonacciLoop.cpp" />
+    <ClCompile Include="FibonacciRecursive.cpp" />
+    <ClCompile Include="FibonacciTailRecursive.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FibonacciBase.h" />
+    <ClInclude Include="FibonacciLoop.h" />
+    <ClInclude Include="FibonacciRecursive.h" />
+    <ClInclude Include="FibonacciTailRecursive.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
