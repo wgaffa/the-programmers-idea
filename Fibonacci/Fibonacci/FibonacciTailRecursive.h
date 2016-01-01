@@ -6,10 +6,10 @@
 class FibonacciTailRecursive : public FibonacciBase
 {
 public:
-	int calculate(int term);
+	unsigned int calculate(int term);
 
 private:
-	int calculate(int term, int result, int last);
+	unsigned int calculate(int term,unsigned int result,unsigned int last);
 };
 
 #endif

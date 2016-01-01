@@ -7,7 +7,7 @@ public:
 	FibonacciBase();
 	~FibonacciBase();
 
-	virtual int calculate(int term) = 0;
+	virtual unsigned int calculate(int term) = 0;
 private:
 	
 };

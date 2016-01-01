@@ -6,7 +6,7 @@
 class FibonacciRecursive : public FibonacciBase
 {
 public:
-	int calculate(int term);
+	unsigned int calculate(int term);
 };
 
 #endif

@@ -4,12 +4,12 @@
 
 using namespace std;
 
-int FibonacciTailRecursive::calculate(int term)
+unsigned int FibonacciTailRecursive::calculate(int term)
 {
 	return calculate(term, 1, 1);
 }
 
-int FibonacciTailRecursive::calculate(int term, int result, int last)
+unsigned int FibonacciTailRecursive::calculate(int term, unsigned int result, unsigned int last)
 {
 	if (term < 0)
 		throw invalid_argument("Fibonacci requires a positive integer");

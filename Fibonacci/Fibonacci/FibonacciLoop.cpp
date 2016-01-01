@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int FibonacciLoop::calculate(int term)
+unsigned int FibonacciLoop::calculate(int term)
 {
 	if (term < 0)
 		throw invalid_argument("Fibonacci requires a positive integer");
@@ -15,9 +15,9 @@ int FibonacciLoop::calculate(int term)
 	if (term == 1)
 		return 1;
 
-	int last_number = 1;
-	int fibonacci = 1;
-	int temporary_number = last_number;
+	unsigned int last_number = 1;
+	unsigned int fibonacci = 1;
+	unsigned int temporary_number = last_number;
 	for (int current_term = 2; current_term < term; current_term++)
 	{
 		temporary_number = last_number;

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int FibonacciRecursive::calculate(int term)
+unsigned int FibonacciRecursive::calculate(int term)
 {
 	if (term < 0 )
 		throw invalid_argument("Fibonacci requires a positive integer");

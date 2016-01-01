@@ -5,7 +5,8 @@
 
 class FibonacciLoop : public FibonacciBase
 {
-	int calculate(int term);
+public:
+	unsigned int calculate(int term);
 };
 
 #endif
