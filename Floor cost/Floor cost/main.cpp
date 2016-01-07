@@ -1,27 +1,24 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
-using namespace std;
+#include "Polygon.h"
 
 int main(int)
-{
-	unsigned int width = 1;
-	unsigned int length = 1;
-	float cost_per_unit = 1.0;
+{	
+	std::vector<int> x_points = { 6, 5, 3, 1, 0 };
+	std::vector<int> y_points = { 4, 1, 0, 1, 4 };
+
+	std::vector<std::pair<int, int>> vertices;
+	vertices.resize(x_points.size());
 	
-	cout << "Width: ";
-	cin >> width;
+	std::transform(x_points.begin(), x_points.end(), y_points.begin(), vertices.begin(), 
+		[](int x, int y) { return std::make_pair(x, y);  }
+	);
+	
+	Polygon polygon(vertices);
 
-	cout << "Length; ";
-	cin >> length;
-
-	cout << "Cost per unit: ";
-	cin >> cost_per_unit;
-
-	unsigned int dimension = width * length;
-	cout << "Dimension is " << dimension << endl;
-
-	float total = dimension * cost_per_unit;
-	cout << "Total cost is " << total << endl;
-
+	std::cout << "Area: " << polygon.area() << std::endl;
+	
 	return 0;
 }
