@@ -1,21 +1,22 @@
 #include <iostream>
 
 #include "Polygon.h"
+#include "Vertex.h"
 
 float Polygon::area()
 {
 	int total = 0;
-	for (std::vector<std::pair<int, int>>::iterator it = begin(); it != end(); it++)
+	for (std::vector<Vertex>::iterator it = begin(); it != end(); it++)
 	{
-		std::cout << "(" << it->first << ", " << it->second << ")" << std::endl;
+		std::pair<int, int> point = it->get_point();
 
 		if (it == end() - 1)
 		{
-			total += it->first * (*this)[0].second - (*this)[0].first * it->second;
+			total += point.first * (*this)[0].get_point().second - (*this)[0].get_point().first * point.second;
 		}
 		else
 		{
-			total += it->first * (it + 1)->second - (it + 1)->first * it->second;
+			total += point.first * (it + 1)->get_point().second - (it + 1)->get_point().first * point.second;
 		}
 	}
 

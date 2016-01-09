@@ -116,6 +116,7 @@
   <ItemGroup>
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="shape.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

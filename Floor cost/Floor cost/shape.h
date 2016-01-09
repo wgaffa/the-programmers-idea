@@ -2,11 +2,13 @@
 
 #include <vector>
 
-class Shape : public std::vector<std::pair<int, int>>
+#include "Vertex.h"
+
+class Shape : public std::vector<Vertex>
 {
 public:
-	Shape() : std::vector<std::pair<int, int>>() {};
-	Shape(std::vector<std::pair<int, int>> &v) : std::vector<std::pair<int, int>>(v) {};
+	Shape() : std::vector<Vertex>() {};
+	Shape(std::vector<Vertex> &v) : std::vector<Vertex>(v) {};
 	virtual ~Shape() {};
 
 	virtual float area() = 0;
